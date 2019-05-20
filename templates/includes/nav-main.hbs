@@ -1,0 +1,114 @@
+<header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        {{#is slug 'index'}}
+        <li class="active">
+          <span>Overview</span>
+        </li>
+        {{else}}
+        <li>
+          <a href="{{rel '.'}}/#">Overview</a>
+        </li>
+        {{/is}}
+
+        {{#is slug 'usage'}}
+        <li class="active">
+          <span>Using Less.js</span>
+        </li>
+        {{else}}
+        <li>
+          <a href="{{rel 'usage'}}/">Using Less.js</a>
+        </li>
+        {{/is}}
+
+        {{#is slug 'functions'}}
+        <li class="active">
+          <span>Functions</span>
+        </li>
+        {{else}}
+        <li>
+          <a href="{{rel 'functions'}}/">Functions</a>
+        </li>
+        {{/is}}
+
+        {{#is slug 'features'}}
+        <li class="active">
+          <span>In-Depth Guide</span>
+        </li>
+        {{else}}
+        <li>
+          <a href="{{rel 'features'}}/">In-Depth Guide</a>
+        </li>
+        {{/is}}
+
+        {{#is links.plugins true}}
+        {{#is slug 'plugins'}}
+        <li class="active">
+          <span>Plugins</span>
+        </li>
+        {{else}}
+        <li>
+          <a href="{{rel 'plugins'}}/">Plugins</a>
+        </li>
+        {{/is}}        
+        {{/is}}
+
+        {{#is slug 'tools'}}
+        <li class="active">
+          <span>Tools</span>
+        </li>
+        {{else}}
+        <li>
+          <a href="{{rel 'tools'}}/">Tools</a>
+        </li>
+        {{/is}}
+
+       
+        {{#is links.cheatsheet true}}
+        {{#is slug 'cheatsheet'}}
+        <li class="active">
+          <span>Cheatsheet</span>
+        </li>
+        {{else}}
+        <li>
+          <a href="{{rel 'cheatsheet'}}/">Cheatsheet</a>
+        </li>
+        {{/is}}        
+        {{/is}}
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {{#is links.blog true}}
+        {{#is slug 'blog'}}
+        <li class="active">
+          <span>Blog</span>
+        </li>
+        {{else}}
+        <li>
+          <a href="{{rel 'blog'}}/">Blog</a>
+        </li>
+        {{/is}}        
+        {{/is}}
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">GitHub <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li> <a href="{{site.repo}}">Docs Repo</a> </li>
+            <li> <a href="{{site.issues}}">Docs Issues</a> </li>
+            <li class="divider"></li>
+            <li> <a href="{{less.repository.url}}">Less Repo</a> </li>
+            <li> <a href="{{less.bugs.url}}">Less Issues</a> </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

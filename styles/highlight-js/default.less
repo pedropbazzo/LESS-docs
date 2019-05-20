@@ -1,0 +1,74 @@
+/*
+    Minimalistic code coloring scheme
+    Assuming we only highlight the following languages:
+    less, css, html, js and "generic shell"
+*/
+
+& { // unnamed namespace
+
+// Styles
+
+pre code {
+    display: block;
+    padding: 0.5em;
+    color:   @black;
+}
+
+.hljs-comment {
+    color:      @gray;
+    font-style: italic;
+}
+
+.-(id,            @orange);
+.-(class,         @blue-dark);
+.-(variable,      @violet);
+.-(tag,           @blue-dark);
+.-(keyword,       @blue-dark);
+.-(built_in,      @blue-dark);
+.-(pseudo,        @violet);
+.-(value,         @cyan);
+.-(number,        @cyan);
+.-(hexcolor,      @cyan);
+.-(literal,       @cyan);
+.-(attribute,     @blue); // <- incl. css property
+// .-(function,   @green);
+.-(attr_selector, @orange);
+.-(attr,          @orange);
+.-(name,          @blue);
+.-(at_rule,       @red);
+.-(string,        @lime);
+
+.lang-less {
+    // Less specific coloring:
+    .-(keyword,  @blue-dark); // <- all :extend &
+    .-(built_in, @brown);     // <- inline js
+}
+
+.-(@name, @color) {
+    .hljs-@{name} {
+        color: @color
+    }
+}
+
+// Colors
+
+@primary-dark-blue: saturate(@navbar-inverse-bg, 70%);
+@h: hue(@primary-dark-blue);
+@s: saturation(@primary-dark-blue);
+@l: lightness(@primary-dark-blue) - 2;
+
+@blue-dark: hsl(@h -   0, @s + 25, @l +  5);
+@blue:      hsl(@h -  15, @s + 15, @l + 15);
+@cyan:      hsl(@h -  37, @s + 10, @l + 10);
+@green:     hsl(@h -  60, @s +  5, @l +  5);
+@lime:      hsl(@h - 130, @s + 25, @l +  5);
+@brown:     hsl(@h - 175, @s + 50, @l + 10);
+@orange:    hsl(@h - 195, @s + 40, @l + 20);
+@red:       hsl(@h - 215, @s +  5, @l + 25);
+@violet:    hsl(@h +  60, @s +  0, @l + 10);
+
+@black:     #393939;
+@gray-dark: #666666;
+@gray:      #939393;
+
+} // ~ unnamed namespace
